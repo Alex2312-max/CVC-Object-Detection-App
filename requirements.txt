@@ -1,3 +1,4 @@
+-f https://download.pytorch.org/whl/torch_stable.html
 asgiref==3.4.1
 comtypes==1.1.10
 cycler==0.10.0
@@ -17,8 +18,5 @@ pyttsx3==2.90
 pytz==2021.1
 six==1.16.0
 sqlparse==0.4.2
-torch==1.9.1+cu102
-torchaudio==0.9.1
-torchvision==0.10.1+cu102
 typing-extensions==3.10.0.2
 

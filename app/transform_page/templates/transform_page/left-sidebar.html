@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html>
+	<head>
+		<title> </title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="{% static 'js/jquery.min.js' %}"></script>
+		<script src="{% static 'js/jquery.dropotron.min.js' %}"></script>
+		<script src="{% static 'js/jquery.scrollgress.min.js' %}"></script>
+		<script src="{% static 'js/jquery.scrolly.min.js' %}"></script>
+		<script src="{% static 'js/jquery.slidertron.min.js' %}"></script>
+		<script src="{% static 'js/skel.min.js' %}"></script>
+		<script src="{% static 'js/skel-layers.min.js' %}"></script>
+		<script src="{% static 'js/init.js' %}"></script>
+		<link rel="stylesheet" href="{% static 'css/skel.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/style-xlarge.css' %}" />
+
+		<!--[if lte IE 9]><link rel="stylesheet" href="{% static 'css/ie/v9.css' %}" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="{% static 'css/ie/v8.css' %}" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header" class="skel-layers-fixed">
+			<h1><a href="index.html">Processing Page</a></h1>
+				<nav id="nav">
+					<ul>
+						<!--{% csrf_token %}-->
+						<form action="http://127.0.0.1:8000/">
+       						<li><button href="http://127.0.0.1:8000/" class="button small alt">Home</button>
+     					</form>
+					</ul>
+				</nav>
+			</header>
+
+		<!--Main-->
+		<section id="main" class="wrapper style1">
+				<header class="major">
+					<h2>Video transform</h2>
+					<p>Select a video to be processed</p>
+				</header>
+				<div class="container">
+					<div class="row 150%">
+						<div class="4u 12u$(2)">
+
+							<!-- Sidebar -->
+								<section id="sidebar"style="height:820px;">
+
+									<div style="width: 500px; heigth=500;">
+										<fieldset name="Video File Upload and Display">
+											{% if msg %} {% autoescape off %} {{ msg }} {% endautoescape %} {% endif %}
+											<form method="post" action="" enctype="multipart/form-data">
+												{% csrf_token %}
+
+												<dl>
+													<p>
+
+														<label>  &nbsp;Browse and select a video file:</label>
+														<input type="file" name="file" autocomplete="off" class="button big scrolly" required>
+
+													</p>
+
+												</dl>
+												<p>
+													<input type="submit" value="Upload and Display">
+												</p>
+
+											</form>
+										</fieldset>
+
+										{% if filename %}
+											<div style="margin: 10px auto; margin-left: 35px;">
+												<video width="1024" height="576" controls>
+													<source src="media/file_blurred/{{ filename }}" type="video/mp4">
+												</video>
+												<object data="media/file_blurred/{{ filename }}" width="360" height="250">
+													<param name="src" value="media/file_blurred/{{ filename }}" />
+												</object>
+											</div>
+
+										{% endif %}
+									</div>
+								</section>
+
+						</div>
+					</div>
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<ul class="icons">
+					<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="https://www.facebook.com/sigmoidAI/" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+					<li><a href="https://www.instagram.com/sigmo.ai/?hl=en" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+					<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+					<li><a href="#" class="icon fa-envelope"><span class="label">Envelope</span></a></li>
+				</ul>
+				<ul class="menu">
+					<li><a href="#">FAQ</a></li>
+					<li><a href="#">Terms of Use</a></li>
+					<li><a href="#">Privacy</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+				<span class="copyright">
+				&copy; Copyright. All rights reserved. Design by <a href="http://www.html5webtemplates.co.uk">Responsive Web Templates</a>	
+				</span>
+			</footer>
+
+	</body>
+</html>

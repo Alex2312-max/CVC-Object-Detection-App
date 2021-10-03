@@ -1227,11 +1227,12 @@
 			}
 
 /* Banner */
-
+{% load static %}
 	#banner {
+	    {% load static %}
 		background-attachment: scroll,						fixed;
 		background-color: #494d53;
-		background-image: url("images/overlay.png"), url("../images/banner.jpg");
+		background-image: url("css/images/overlay.png"), url("../images/banner_hq_1.jpg");
 		background-position: top left,					center center;
 		background-repeat: repeat,						no-repeat;
 		background-size: auto,						cover;
